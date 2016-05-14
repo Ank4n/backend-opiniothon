@@ -8,29 +8,44 @@ import javax.persistence.Id;
 
 @Entity
 public class UserEntity {
-	
-	public static final String USER_TYPE_DELIVERY_AGENT = "DeliveryGuy";
-	public static final String USER_TYPE_CONSUMER = "Consumer";
-	
+
+	public static final int USER_TYPE_DELIVERY_AGENT = 1;
+	public static final int USER_TYPE_CONSUMER = 2;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private String userName;
-	private String password;
-	private String type;
 
-	public UserEntity(String userName, String password, String type) {
+	private String name;
+
+	private String address;
+
+	private String password;
+
+	@Column(unique = true)
+	private String phoneNumber;
+
+	private double lat;
+
+	private double lon;
+
+	private boolean isAvailable;
+
+	private int type;
+
+	public UserEntity() {
+
+	}
+
+	public UserEntity(String name, String address, String password, String phoneNumber, int type) {
 		super();
-		this.userName = userName;
+		this.name = name;
+		this.address = address;
 		this.password = password;
+		this.phoneNumber = phoneNumber;
+		this.isAvailable = true;
 		this.type = type;
 	}
-	public UserEntity() {
-	
-	
-	}
-	
 
 	public Long getId() {
 		return id;
@@ -40,13 +55,52 @@ public class UserEntity {
 		this.id = id;
 	}
 
-	@Column(unique=true)
-	public String getUserName() {
-		return userName;
+	public String getName() {
+		return name;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public double getLat() {
+		return lat;
+	}
+
+	public void setLat(double lat) {
+		this.lat = lat;
+	}
+
+	public double getLon() {
+		return lon;
+	}
+
+	public void setLon(double lon) {
+		this.lon = lon;
+	}
+
+	public boolean isAvailable() {
+		return isAvailable;
+	}
+
+	public void setAvailable(boolean isAvailable) {
+		this.isAvailable = isAvailable;
 	}
 
 	public String getPassword() {
@@ -57,11 +111,11 @@ public class UserEntity {
 		this.password = password;
 	}
 
-	public String getType() {
+	public int getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(int type) {
 		this.type = type;
 	}
 
