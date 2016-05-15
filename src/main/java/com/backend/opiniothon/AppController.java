@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import response.GeoLocation;
-import response.PostStatus;
+import requestResponseHelper.GeoLocation;
+import requestResponseHelper.PostStatus;
 
 @RestController
 public class AppController {

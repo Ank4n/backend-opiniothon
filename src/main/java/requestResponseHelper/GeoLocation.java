@@ -1,4 +1,4 @@
-package response;
+package requestResponseHelper;
 
 public class GeoLocation {
 
